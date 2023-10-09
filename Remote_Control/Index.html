@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fun USB</title>
+
+        <meta charset="UTF-8" />
+
+       <style>
+         a
+         {
+           border: 2px dashed gray;
+           margin: 10px;
+           text-decoration: none;
+           color: gray;
+           font-size:70px;
+           position: relative;
+         }
+         .container
+         {
+           border: 2px dashed gray;
+           width:min-content;
+           padding: 1%;
+           margin: 0.5%;
+           position: relative;
+           left: 40%;
+         }
+         textarea
+         {
+           background-color: black;
+           font-size: 30px;
+           color: gray;
+           width: 400px;
+           margin: 10px;
+         }
+         .btn
+         {
+           font-size: 60px;
+           color: gray;
+           margin-left: 10px;
+           border: 2px dashed gray;
+           background-color: black;
+         }
+      </style>
+
+   </head>
+   <body style="background-color: black;">
+
+    <div id="kkk" class="container">
+
+      <script>
+        
+        "use strict";
+
+        function redirectWithParams(key, value) {
+          var searchParams = new URLSearchParams(window.location.search);
+          searchParams.set(key, value);
+          var newRelativePathQuery = window.location.pathname + "/changeURL?" + searchParams.toString();
+          window.location.href = newRelativePathQuery;
+        }
+        "use strict";
+        function getTextAreaValue() {
+          var textarea = document.getElementById('textarea');
+          var value = textarea.value;
+          return value;
+        }
+        function handlerMouseDown() {
+          redirectWithParams("URL", getTextAreaValue());
+          return false;
+        }
+
+      </script>
+
+      <h4> <a href="/operationStart"> Start </a> </h4>
+      <a href="/changeMode"> Mode_URL </a>
+      <textarea id="textarea"></textarea>
+      <a onclick="return handlerMouseDown()" href="ee"> Edit </a>
+
+    </div>
+   </body>
+</html>
